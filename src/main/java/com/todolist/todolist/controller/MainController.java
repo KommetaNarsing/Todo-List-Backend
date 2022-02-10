@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin
@@ -19,8 +20,9 @@ public class MainController {
 
     @PostMapping(path = "/add",consumes = {"application/json"})
     public String addItem(@RequestBody TodoItem item){
+        item.setTodoItemId(UUID.randomUUID().toString());
         new TodoItemDao(jdbcTemplate).insert(item);
-        return "Success";
+        return item.getTodoItemId();
     }
 
     @GetMapping(path = "/list")
