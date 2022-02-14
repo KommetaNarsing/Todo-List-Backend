@@ -1,11 +1,21 @@
 package com.todolist.todolist.entity;
 
+import java.security.PrivateKey;
+
 public class User {
 
     private String userName;
     private  String emailId;
     private  String userId;
-    private long timeStamp;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -32,12 +42,4 @@ public class User {
         return userId;
     }
 
-
-    public long getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
-    }
 }
