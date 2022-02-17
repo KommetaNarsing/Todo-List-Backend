@@ -1,17 +1,29 @@
 package com.todolist.todolist.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "todo_item", schema = "public")
 public class TodoItem {
+
+    @Id
     private String id;
     private String description;
+
+    @Column(name = "user_id")
     private String userId;
-    private long timeStamp;
+
+    private long timestamp;
 
     public long getTimeStamp() {
-        return timeStamp;
+        return timestamp;
     }
 
     public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
+        this.timestamp = timeStamp;
     }
 
     public String getTodoItemId() {

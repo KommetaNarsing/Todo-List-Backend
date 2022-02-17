@@ -1,13 +1,44 @@
 package com.todolist.todolist.entity;
 
-import java.security.PrivateKey;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "user", schema = "public")
 public class User {
 
-    private String userName;
-    private  String emailId;
+    @Id
+    @Column(name = "userid")
     private  String userId;
+
+    @Column(name = "username")
+    private String userName;
+
+    @Column(name = "password")
     private String password;
+
+    public User(String userId){
+        this.userId = userId;
+    }
+
+    public User(){
+
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
 
     public String getPassword() {
         return password;
@@ -15,31 +46,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public String getUserId() {
-        return userId;
     }
 
 }
